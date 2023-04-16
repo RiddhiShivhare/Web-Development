@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+
+<body>
+    <h1 align="center">Arithemetic Operations</h1>
+    <script>
+        function calculator() {
+            let choice = prompt("enter your choice 1-add , 2-sub , 3-mul, 4-div");
+            let a = prompt("enter the value of a");
+            let b = prompt("enter the value of b:");
+            choice = Number.parseInt(choice);
+            a = Number.parseInt(a);
+            b = Number.parseInt(b);
+            switch (choice) {
+                case 1: {
+                    let c = a + b;
+                    document.write("sum of a and b :" + c);
+                }
+                    break;
+                case 2: {
+                    let c = a - b;
+                    document.write("difference of a and b :" + c);
+                }
+                    break;
+                case 3: {
+                    let c = a * b;
+                    document.write("product of a and b :" + c);
+                }
+                    break;
+                case 4: {
+                    let c = a / b;
+                    document.write("division a and b :" + c);
+                }
+                    break;
+            }
+        }
+        calculator();
+    </script>
+
+</body>
+
+</html>
