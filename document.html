@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manipulating DOM</title>
+</head>
+<body><div id="main" class="container">
+        <ul id="nav">
+            <li id="id1">home</li>
+            <li id="id2">about</li>
+            <li id="id3">contact</li>
+            <li id="id4">more</li>
+        </ul>
+    </div>
+    <div class="container">
+        another container.
+    </div>
+    <script>
+        // Nnavigate the dom using id
+        let main = document.getElementById('main');
+        console.log(main);
+
+        let nav = document.getElementById('nav')
+        console.log(nav);
+        // navigate dom bt classname
+        let containers = document.getElementsByClassName('container');
+        console.log(containers);
+        // navigate dom by selectors
+        let sel = document.querySelector('.container');
+        console.log("selectors returns" , sel);
+        let sel1 = document.querySelector('#nav>li');
+        console.log("selectors returns" , sel1);
+        let sel2 = document.querySelectorAll('#nav>li');
+        console.log("selectors returns" , sel2);
+        // innerhtml and outerhtml
+        document.getElementById("id1").innerHTML = "HOME";
+        console.log(document.getElementById("id1").outerHTML);
+        // first child and the last child
+        console.log(document.body.firstChild);
+        console.log(document.body.lastChild);
+        let a = document.body.firstChild;
+        console.log(a.parentElement); // if the parent is element then only it returns the parent
+        console.log(a.parentNode);    // return parent in any case
+        // finding the sibling
+        console.log(a.firstChild.nextSibling)
+    </script>
+</body>
+</html>
