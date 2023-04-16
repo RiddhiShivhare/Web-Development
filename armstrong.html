@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>armstrong numbert</title>
+</head>
+<body>
+    <h1>Armstrong number</h1>
+    <script>
+        function arm(num){
+            let temp , sum = 0 , rem ;
+            temp = num ;
+            while(num > 0){
+                rem = num % 10 ;
+                sum += (rem*rem*rem);
+                num = parseInt(num / 10) ;
+            }
+            if(temp == sum){
+                document.write(temp + " " + " is a Armstrong number.")
+            }
+            else{
+                document.write(temp + " " + " is not a Armstrong number.")
+            }
+        }
+        arm(153);
+        function pallindrome(num){
+            let temp , sum = 0 , rem ;
+            temp = num ;
+            while(num > 0){
+                rem = num % 10 ;
+                sum = (sum*10) + rem;
+                num = parseInt(num / 10) ;
+            }
+            if(temp == sum){
+                document.write(temp + " " + " is a pallindrome number.\n")
+            }
+            else{
+                document.write(temp + " " + " is not a pallindrome number.\n")
+            }
+        }
+        pallindrome(121);
+    </script>
+    
+</body>
+</html>
