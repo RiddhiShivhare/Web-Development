@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>css color in js</title>
+    <style>
+        h1{
+            font:italic;
+            font-size: 60px;
+            font-weight: bold;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div><h1 id="heading">Hello world!</h1></div>
+    </center>
+    <center>
+    <button type = "button" onclick = "randomcolor()" class="btn btn-primary btn-lg">CLICK</button>
+    </center>
+    <script>
+            function randomcolor(){
+            var randcol= "";
+            var allchar="0123456789ABCDEF";
+            for(var i=0; i<6; i++){
+               randcol += allchar[Math.floor(Math.random()*16)];
+            }
+             document.body.style.backgroundColor= "#"+randcol;
+            }
+    </script>
+</body>
+</html>
