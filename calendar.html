@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+</head>
+<style>
+    #navBar {
+        border: 1px solid black;
+        width: 94%;
+        border-radius: 20px;
+        height: 25px;
+        padding-top: 5px;
+        background-color: pink;
+        margin-left: 30px;
+    }
+    #yr {
+        width: 50px;
+        padding: 0px 10px;
+    }
+    span {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    button {
+        border-radius: 10px;
+    }
+    table {
+        border-collapse: collapse;
+        margin-left: 33px;
+        margin-top: 10px;
+    }
+    td {
+        border: 1px solid black;
+        background-color: pink;
+        margin: 2px;
+        height: 52px;
+        width: 100px;
+        text-align: center;
+    }
+</style>
+<body>
+    <div id="navBar">
+        <span>Month:
+            <select id="sel">
+                <option id="m0" value="0">January</option>
+                <option id="m1" value="1">Feburary </option>
+                <option id="m2" value="2">March</option>
+                <option id="m3" value="3" selected>April</option>
+                <option id="m4" value="4">May</option>
+                <option id="m5" value="5">June</option>
+                <option id="m6" value="6">July</option>
+                <option id="m7" value="7">August</option>
+                <option id="m8" value="8">September</option>
+                <option id="m9" value="9">October</option>
+                <option id="m10" value="10">November</option>
+                <option id="m11" value="11">December</option>
+            </select>
+        </span>
+        <span> Year:<input type="number" value="2023" maxlength="50px" id="yr"></span>
+        <span>
+            <button onclick="month()">Generate</button>
+        </span>
+    </div>
+    <table id="tab">
+    </table>
+    <script >
+        function month()
+{  
+    let d=new Date()
+    let tab=document.getElementById("tab") 
+    let yr=parseInt(document.getElementById("yr").value)
+    tab.innerHTML=""
+    let sel=document.getElementById("sel")
+    let noOfDays=new Date(yr,parseInt(sel.value)+1,0).getDate()
+    let firstDay=new Date(yr,sel.value,1).getDay()
+    var c=[]
+    var t=tab.insertRow(0)
+    let a1=t.insertCell(0)
+    a1.innerHTML="SUNDAY"
+    t.insertCell(1).innerHTML="MONDAY"
+    t.insertCell(2).innerHTML="TUESDAY"
+    t.insertCell(3).innerHTML="WEDNESDAY"
+    t.insertCell(4).innerHTML="THURSDAY"
+    t.insertCell(5).innerHTML="FRIDAY"
+    let a2=t.insertCell(6)
+    a2.innerHTML="SATURDAY"
+    a1.style.fontWeight="bold"
+    a1.style.color="red"
+    a2.style.fontWeight="bold"
+    a2.style.color="red"
+    t.style.fontWeight="bold"
+    for(let i=1;i<=42;i++)
+    {
+        if(i-firstDay>noOfDays && (i-1)%7==0)
+        break;
+        if((i-1)%7==0)
+        var row=tab.insertRow(Math.floor(i/7)+1)
+        c[i]=row.insertCell((i-1)%7)
+        if(i-firstDay>0&&i-firstDay<=noOfDays)
+        {
+            c[i].innerHTML=i-firstDay
+            c[i].style.fontSize="30px"
+            c[i].style.fontWeight="bold"
+            c[i].style.textAlign="center"
+            c[i].style.verticalAlign="bottom"
+        }
+        if(i%7==1||i%7==0)
+            c[i].style.color="red"
+    }   
+}
+    </script>
+</body>
+</html>
+
+
